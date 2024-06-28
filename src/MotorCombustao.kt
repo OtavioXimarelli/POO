@@ -1,25 +1,14 @@
-abstract class MotorCombustao : Motor() {
+class MotorCombustao : MotorImpl() {
 
-    protected var nivelCombustivel: Int = 2
+    private var nivelCombustivel: Int = 2
 
 
-    abstract override fun gastando()
+     override fun gastando() {
+         println("Gastando combustivel, nivel agora é: $nivelCombustivel")
+         nivelCombustivel--
+     }
 
     override fun temAutonomia(): Boolean {
         return nivelCombustivel > 0
-    }
-}
-
-class MotorAlcool : MotorCombustao() {
-    override fun gastando() {
-        nivelCombustivel -= 2
-        println("gastando combustivel, o nivel atual agora é: $nivelCombustivel")
-    }
-}
-
-class MotorGasolina : MotorCombustao() {
-    override fun gastando() {
-        nivelCombustivel = nivelCombustivel --
-        println("gastando combustivel, o nivel atual agora é: $nivelCombustivel")
     }
 }

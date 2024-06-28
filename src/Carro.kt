@@ -1,16 +1,6 @@
 class Carro constructor(
-    private val motor: Motor
-) {
-
-    fun ligar() {
-        motor.ligar()
-        println("ligando o carro... ")
-    }
-
-    fun desligar() {
-        motor.desligar()
-        println("Desligando o carro.... ")
-    }
+    private val motor: MotorImpl
+)   : Motor by motor{
 
     fun andar() {
         when {
@@ -18,7 +8,7 @@ class Carro constructor(
             !motor.temAutonomia() -> {
                 when(motor) {
                     is MotorEletrico -> println("tem que colocar para carregar!!!")
-                is MotorCombustao -> println("Tem que colocar mais combustivel!!!")
+                    is MotorCombustao -> println("Tem que colocar mais combustivel!!!")
                 }
             }
             else -> {
@@ -26,8 +16,6 @@ class Carro constructor(
                 when(motor) {
                     is MotorEletrico -> println("Carro andando...")
                     is MotorCombustao -> println("Carro andando: vruuuun vruuunnn")
-
-
                 }
             }
         }

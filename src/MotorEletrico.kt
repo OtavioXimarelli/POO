@@ -1,9 +1,9 @@
-class MotorEletrico : Motor() {
+class MotorEletrico : MotorImpl() {
 
     private var nivelBateria: Int = 1
 
     override fun gastando() {
-        println("gastando energia, nive agora é: $nivelBateria")
+        println("gastando energia, nivel agora é: $nivelBateria")
         nivelBateria--
     }
 
